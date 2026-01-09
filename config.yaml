@@ -1,0 +1,101 @@
+﻿# Proje Konfigürasyonu
+# Türkiye İlleri Sosyo-Ekonomik Kümeleme Projesi
+
+project:
+  name: "Türkiye İlleri Sosyo-Ekonomik Kümeleme"
+  author: "Bitirme Projesi"
+  year: 2025
+  version: "1.0.0"
+
+# Veri Ayarları
+data:
+  raw_path: "data/raw/"
+  processed_path: "data/processed/"
+  external_path: "data/external/"
+  main_dataset: "il_verileri.csv"
+  geojson_file: "turkiye_iller.geojson"
+
+# Kümeleme Ayarları
+clustering:
+  algorithms:
+    - "kmeans"
+    - "hierarchical"
+  k_range: [3, 4, 5, 6, 7, 8]
+  optimal_k: 5  # SEGE benzeri 5 küme
+  random_state: 42
+  n_init: 10
+  
+  # Hiyerarşik kümeleme
+  linkage_method: "ward"
+  distance_metric: "euclidean"
+
+# Ön İşleme Ayarları
+preprocessing:
+  scaler: "standard"  # standard, minmax, robust
+  handle_missing: "median"  # mean, median, drop
+  outlier_method: "iqr"  # zscore, iqr, isolation_forest
+  outlier_threshold: 1.5  # IQR çarpanı
+
+# PCA Ayarları
+pca:
+  enabled: true
+  variance_threshold: 0.95
+  n_components: null  # null ise variance_threshold kullanılır
+
+# Görselleştirme Ayarları
+visualization:
+  figure_dpi: 300
+  figure_format: "png"
+  color_palette: "Set2"
+  map_style: "CartoDB positron"
+  
+  # Küme renkleri
+  cluster_colors:
+    0: "#e41a1c"  # Kırmızı - En az gelişmiş
+    1: "#ff7f00"  # Turuncu
+    2: "#ffff33"  # Sarı
+    3: "#4daf4a"  # Yeşil
+    4: "#377eb8"  # Mavi - En gelişmiş
+
+# Değişken Kategorileri
+variables:
+  demographic:
+    - nufus_yogunlugu
+    - kentlesme_orani
+    - net_goc_hizi
+    - medyan_yas
+    - yasli_bagimlilik_orani
+    
+  economic:
+    - kisi_basi_gsyh
+    - issizlik_orani
+    - istihdam_orani
+    - kisi_basi_ihracat
+    - kisi_basi_mevduat
+    - girisimcilik_orani
+    
+  education:
+    - yuksekogretim_mezun_orani
+    - ortaogretim_okullaşma
+    - ogretmen_basina_ogrenci
+    - okur_yazar_orani
+    
+  health:
+    - doktor_sayisi_10000
+    - yatak_sayisi_10000
+    - bebek_olum_hizi
+    - yasam_beklentisi
+    
+  infrastructure:
+    - internet_erisim_orani
+    - arac_sayisi_1000
+    - kisi_basi_elektrik
+    - hava_kalitesi_indeksi
+    - suc_orani
+
+# Rapor Ayarları
+report:
+  output_path: "reports/"
+  figures_path: "reports/figures/"
+  include_appendix: true
+  language: "tr"
