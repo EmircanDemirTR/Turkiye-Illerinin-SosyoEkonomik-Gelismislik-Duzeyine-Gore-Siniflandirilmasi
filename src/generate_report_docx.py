@@ -8,12 +8,10 @@ from docx.oxml.ns import qn
 from docx.shared import RGBColor
 
 # Configuration
-REPORT_MD_PATH = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\final_report.md"
-FIGURES_DIR = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\figures"
-OUTPUT_DOCX_PATH = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\Bitirme_Projesi_Raporu.docx"
-
-STUDENT_ID = "241307109"
-DEPT = "Bilişim Sistemleri Mühendisliği 4. Sınıf"
+_BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+REPORT_MD_PATH = os.path.join(_BASE_DIR, "reports", "final_report.md")
+FIGURES_DIR = os.path.join(_BASE_DIR, "reports", "figures")
+OUTPUT_DOCX_PATH = os.path.join(_BASE_DIR, "reports", "Bitirme_Projesi_Raporu.docx")
 PROJECT_TITLE = "TÜRKİYE İLLERİNİN SOSYO-EKONOMİK GELİŞMİŞLİK DÜZEYLERİNE GÖRE\nMAKİNE ÖĞRENMESİ YÖNTEMLERİYLE KÜMELENMESİ"
 
 def setup_styles(doc):
@@ -96,51 +94,35 @@ def add_formatted_paragraph(doc, text, style=None, alignment=None):
     return p
 
 def create_cover_page(doc):
-    # T.C. Header
-    p = doc.add_paragraph('T.C.\nKOCAELİ ÜNİVERSİTESİ\nTEKNOLOJİ FAKÜLTESİ')
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.style.font.bold = True
-    
-    # Logo placeholder or space
+    # Space
     doc.add_paragraph('\n\n\n\n')
-    
-    # Department
-    p = doc.add_paragraph('BİLİŞİM SİSTEMLERİ MÜHENDİSLİĞİ BÖLÜMÜ')
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    p.style.font.bold = True
-    p.style.font.size = Pt(14)
-    
-    doc.add_paragraph('\n\n')
-    
+
     # Title
     p = doc.add_paragraph(PROJECT_TITLE)
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.style.font.bold = True
     p.style.font.size = Pt(16)
-    
+
     doc.add_paragraph('\n')
-    
-    p = doc.add_paragraph('LİSANS BİTİRME TEZİ')
+
+    p = doc.add_paragraph('Research Report')
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.style.font.size = Pt(14)
-    
+
     doc.add_paragraph('\n\n\n\n\n')
-    
-    # Student Info
-    p = doc.add_paragraph(f'Hazırlayan\n{STUDENT_ID}')
+
+    # Author
+    p = doc.add_paragraph('Emircan Demir')
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.style.font.bold = True
-    
-    p = doc.add_paragraph(DEPT)
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    
+
     doc.add_paragraph('\n\n\n')
-    
+
     # Date
-    p = doc.add_paragraph('KOCAELİ, Ocak 2026')
+    p = doc.add_paragraph('January 2026')
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
     p.style.font.bold = True
-    
+
     doc.add_page_break()
 
 def clean_text_content(text):

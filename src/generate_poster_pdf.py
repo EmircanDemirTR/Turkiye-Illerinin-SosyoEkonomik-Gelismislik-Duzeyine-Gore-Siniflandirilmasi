@@ -12,8 +12,8 @@ WIDTH = 16.53
 HEIGHT = 11.69
 DPI = 300
 
-FIGURES_DIR = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\figures"
-OUTPUT_PATH = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\Proje_Posteri.pdf"
+FIGURES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports", "figures")
+OUTPUT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports", "Proje_Posteri.pdf")
 
 # Colors
 HEADER_COLOR = '#1f77b4' # Tech Blue
@@ -55,7 +55,7 @@ def create_poster():
     title = "TÜRKİYE İLLERİNİN SOSYO-EKONOMİK GELİŞMİŞLİK DÜZEYLERİNE GÖRE\nMAKİNE ÖĞRENMESİ YÖNTEMLERİYLE KÜMELENMESİ"
     ax.text(WIDTH/2, HEIGHT - 0.75, title, fontsize=20, fontweight='bold', color='white', ha='center', va='center')
     
-    student_info = "Emir Can Demir (241307109) | Bilişim Sistemleri Mühendisliği"
+    student_info = "Emircan Demir"
     ax.text(WIDTH/2, HEIGHT - 1.3, student_info, fontsize=14, color='white', ha='center')
 
     # --- COLUMNS ---
@@ -149,7 +149,7 @@ def create_poster():
     draw_text_box(ax, "KAYNAKÇA", kaynak_text, col3_x, kaynak_y, col_width, 2.5, fontsize=10)
     
     # Footer
-    ax.text(WIDTH/2, 0.2, "Emir Can Demir | 241307109 | Kocaeli Üniversitesi Teknoloji Fakültesi", fontsize=9, ha='center', color='gray')
+    ax.text(WIDTH/2, 0.2, "Emircan Demir", fontsize=9, ha='center', color='gray')
 
     plt.savefig(OUTPUT_PATH, format='pdf', bbox_inches='tight')
     print(f"Poster saved to {OUTPUT_PATH}")

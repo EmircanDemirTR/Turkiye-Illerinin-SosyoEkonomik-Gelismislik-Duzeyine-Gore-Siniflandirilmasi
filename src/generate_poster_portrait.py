@@ -9,8 +9,8 @@ WIDTH = 11.69
 HEIGHT = 16.53
 DPI = 300
 
-FIGURES_DIR = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\figures"
-OUTPUT_PATH = r"g:\Drive'ım\Dersler - Projeler\Bitirme Projesi-A Güz Dönemi\reports\Proje_Posteri_Dikey.pdf"
+FIGURES_DIR = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports", "figures")
+OUTPUT_PATH = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), "reports", "Proje_Posteri_Dikey.pdf")
 
 # Header Config
 HEADER_H = 1.8
@@ -123,7 +123,7 @@ def create_poster():
     
     ax.text(WIDTH/2, HEIGHT - 0.6, "TÜRKİYE İLLERİNİN SOSYO-EKONOMİK GELİŞMİŞLİK DÜZEYLERİNE GÖRE\nMAKİNE ÖĞRENMESİ YÖNTEMLERİYLE KÜMELENMESİ", 
             fontsize=18, fontweight='bold', color='white', ha='center', va='center')
-    ax.text(WIDTH/2, HEIGHT - 1.3, "Emircan Demir (241307109) | Danışman: Prof. Dr. Hikmet Hakan Gürel | Bilişim Sistemleri Müh.", 
+    ax.text(WIDTH/2, HEIGHT - 1.3, "Emircan Demir",
             fontsize=12, color='white', ha='center')
 
     # Current Cursor Y Position (starts below header)
@@ -235,7 +235,7 @@ def create_poster():
     # If cursor_y is very low (e.g. 0.1), we are in trouble anyway.
     
     ax.text(MARGIN, cursor_y - 0.2, "GitHub: github.com/EmircanDemirTR/Turkiye-Illerinin-SosyoEkonomik-Gelismislik-Duzeyine-Gore-Siniflandirilmasi", fontsize=9, color='blue')
-    ax.text(WIDTH/2, cursor_y - 0.4, "Kocaeli Üniversitesi Teknoloji Fakültesi 2025-2026", ha='center', color='gray', fontsize=9)
+    ax.text(WIDTH/2, cursor_y - 0.4, "Emircan Demir - 2026", ha='center', color='gray', fontsize=9)
 
     plt.savefig(OUTPUT_PATH, format='pdf', bbox_inches='tight')
     print(f"Poster saved to {OUTPUT_PATH}")

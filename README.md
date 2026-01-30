@@ -2,7 +2,7 @@
 
 ## 📋 Proje Hakkında
 
-Bu proje, Türkiye'deki 81 ilin gelişmişlik ve sosyo-ekonomik seviyelerine göre kümeleme analizi yapan bir makine öğrenmesi çalışmasıdır. Lisans bitirme projesi olarak hazırlanmıştır.
+Bu proje, Türkiye'deki 81 ilin gelişmişlik ve sosyo-ekonomik seviyelerine göre kümeleme analizi yapan bir makine öğrenmesi çalışmasıdır.
 
 ## 🎯 Amaç
 
@@ -103,8 +103,8 @@ jupyter notebook notebooks/kumeleme_analizi.ipynb
 
 ## 📝 Lisans
 
-Bu proje lisans bitirme tezi kapsamında hazırlanmıştır.
+MIT License
 
 ## 👤 Yazar
 
-Bitirme Projesi - Güz Dönemi 2025-2026
+Emircan Demir

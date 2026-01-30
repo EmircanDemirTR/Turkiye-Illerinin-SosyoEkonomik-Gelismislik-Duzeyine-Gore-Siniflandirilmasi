@@ -1,8 +1,6 @@
 ﻿# TÜRKİYE İLLERİNİN SOSYO-EKONOMİK GELİŞMİŞLİK DÜZEYLERİNE GÖRE MAKİNE ÖĞRENMESİ YÖNTEMLERİYLE KÜMELENMESİ
 
-## LİSANS BİTİRME PROJESİ
-
-**Güz Dönemi 2025-2026**
+## Research Report
 
 ---
 
